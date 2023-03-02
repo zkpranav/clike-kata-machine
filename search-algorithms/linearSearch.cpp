@@ -1,3 +1,9 @@
+/*
+    Linear search - Walk the entire structure to find the needle
+    Time complexity -
+    search - O(n)
+*/
+
 #include <iostream>
 #include <vector>
 

@@ -1,3 +1,10 @@
+/*
+    *Note - Consider off by 1 conditions
+    Binary search - Reduce the searching space by half on every iteration. Requires the searching space to be sorted.
+    Time complexity -
+    search - O(log n)
+*/
+
 #include <iostream>
 #include <vector>
 #include <cmath>
