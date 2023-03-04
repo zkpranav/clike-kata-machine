@@ -1,7 +1,7 @@
 /*
     Bubble sort - Bubble the largest element of the set to the top on every iteration
     Time complexity -
-    Search - O(n^2)
+    Sort - O(n^2)
 */
 
 #include <iostream>
