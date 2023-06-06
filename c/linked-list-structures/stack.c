@@ -18,6 +18,11 @@ int main(int argc, char* argv[]) {
 
 void push(int value) {
     struct node* n = (struct node*) malloc(sizeof(struct node));
+
+    if (n == NULL) {
+        return;
+    }
+
     n->value = value;
     n->prev = head;
     head = n;
@@ -29,9 +34,12 @@ int pop() {
     }
 
     struct node* n = head;
+    int tmp = n->value;
     head = head->prev;
     n->prev = NULL;
-    return n->value;    
+    free(n);
+
+    return tmp;
 }
 
 int peek() {
