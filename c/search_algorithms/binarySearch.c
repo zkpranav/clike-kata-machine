@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 bool binarySearch(int* haystack, int haystackLen, int needle);
 
@@ -13,7 +14,7 @@ bool binarySearch(int* haystack, int haystackLen, int needle) {
     bool status = false;
 
     while (low < high) {
-        int mid = low + (high - low) / 2;
+        int mid = (int) floor(low + (high - low) / 2);
         int value = haystack[mid];
 
         if (needle == value) {
