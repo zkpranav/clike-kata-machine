@@ -1,3 +1,8 @@
+// Best case: O(n)
+// Worst case: O(n^2)
+// Technique: Incremental
+// Loop invariant: subarray a[0: i] contains the same elements, and is always sorted.
+
 #include <stdio.h>
 #include <stdlib.h>
 
