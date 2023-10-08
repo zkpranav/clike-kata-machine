@@ -47,14 +47,14 @@ void threadlist_cleanup(struct threadlist *tl);
 bool threadlist_isempty(struct threadlist* tl);
 
 /* Add and remove at ends */
-void threadlist_addhead(struct threadlist *tl, struct threadlistnode *tln);
-void threadlist_addtail(struct threadlist *tl, struct threadlistnode *tln);
+void threadlist_addhead(struct threadlist *tl, struct thread *t);
+void threadlist_addtail(struct threadlist *tl, struct thread *t);
 struct thread* threadlist_remhead(struct threadlist *tl);
 struct thread* threadlist_remtail(struct threadlist *tl);
 
 /* Internal functions. Add remove in the middle. tl is needed to maintain ->tl_count */
-static void threadlist_insertAfter(struct threadlistnode *onlist, struct thread *t);
-static void threadlist_insertBefore(struct thread *t, struct threadlistnode *onlist);
-static void threadlist_remove(struct thread *t);
+static void threadlist_insertafter(struct threadlistnode *onlist, struct thread *t);
+static void threadlist_insertbefore(struct thread *t, struct threadlistnode *onlist);
+static void threadlist_removenode(struct threadlistnode *tln);
 
 #endif /* THREADLIST_H_ */
