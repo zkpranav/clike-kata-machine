@@ -53,8 +53,8 @@ struct thread* threadlist_remhead(struct threadlist *tl);
 struct thread* threadlist_remtail(struct threadlist *tl);
 
 /* Internal functions. Add remove in the middle. tl is needed to maintain ->tl_count */
-void threadlist_insertAfter(struct threadlist *tl, struct threadlistnode *onlist, struct thread *addee);
-void threadlist_insertBefore(struct threadlist *tl, struct thread *addee, struct threadlistnode *onlist);
-struct thread* threadlist_remove(struct threadlist *tl, struct thread *t);
+static void threadlist_insertAfter(struct threadlistnode *onlist, struct thread *t);
+static void threadlist_insertBefore(struct thread *t, struct threadlistnode *onlist);
+static void threadlist_remove(struct thread *t);
 
 #endif /* THREADLIST_H_ */
