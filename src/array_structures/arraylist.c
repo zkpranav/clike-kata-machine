@@ -5,12 +5,12 @@ int* arr;
 size_t capacity;
 size_t length;
 
-void* doubleCapacity();
-void* halfCapacity();
+void* double_capacity(int*);
+void* half_capacity(int*);
 
 void prepend(int value);
 void append(int value);
-void insertAt(int idx, int value);
+void insert_at(int idx, int value);
 
 int main(int argc, char* argv[]) {
     capacity = 4;
@@ -20,17 +20,27 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    append(0);
+    append(1);
+    append(2);
+
+    insert_at(2, -1);
+
+    prepend(100);
+    prepend(101);
+    prepend(102);
+
     return 0;
 }
 
-void* doubleCapacity(ptr) {
+void* double_capacity(int* ptr) {
     capacity = capacity * 2;
     return realloc(ptr, sizeof(int) * capacity);
 }
 
 void prepend(int value) {
     if (length == capacity) {
-        void* ptr = doubleCapacity(arr);
+        void* ptr = double_capacity(arr);
         if (ptr == NULL) {
             return;
         }
@@ -48,7 +58,7 @@ void prepend(int value) {
 
 void append(int value) {
     if (length == capacity) {
-        void* ptr = doubleCapacity(arr);
+        void* ptr = double_capacity(arr);
         if (ptr == NULL) {
             return;
         }
@@ -60,7 +70,7 @@ void append(int value) {
     length += 1;
 }
 
-void insertAt(int idx, int value) {
+void insert_at(int idx, int value) {
     if (idx < 0 || idx > length) {
         return;
     }
@@ -72,7 +82,7 @@ void insertAt(int idx, int value) {
     }
 
     if (length == capacity) {
-        void* ptr = doubleCapacity(arr);
+        void* ptr = double_capacity(arr);
         if (ptr == NULL) {
             return;
         }
@@ -82,7 +92,7 @@ void insertAt(int idx, int value) {
 
     length += 1;
     for (size_t i = length - 1; i > idx; i -= 1) {
-        arr[i] == arr[i - 1];
+        arr[i] = arr[i - 1];
     }
 
     arr[idx] = value;
