@@ -12,10 +12,10 @@ size_t length;
 
 void prepend(int value);
 void append(int value);
-void insertAt(int idx, int value);
-int getAt(int idx);
-int removeAt(int idx);
-int removeValue(int value);
+void insert_at(int idx, int value);
+int get_at(int idx);
+int remove_at(int idx);
+int remove_value(int value);
 
 int main(int argc, char* argv[]) {
     head = NULL;
@@ -66,7 +66,7 @@ void append(int value) {
     curr->next = node;
 }
 
-void insertAt(int idx, int value) {
+void insert_at(int idx, int value) {
     if (idx < 0 || idx > length) {
         return;
     } else if (idx == length) {
@@ -97,7 +97,7 @@ void insertAt(int idx, int value) {
     curr->next = node;
 }
 
-int getAt(int idx) {
+int get_at(int idx) {
     if (
         head == NULL ||
         idx < 0 ||
@@ -120,7 +120,7 @@ int getAt(int idx) {
     return curr->value;
 }
 
-int removeAt(int idx) {
+int remove_at(int idx) {
     if (
         head == NULL ||
         idx < 0 ||
@@ -163,7 +163,7 @@ int removeAt(int idx) {
     return ret;
 }
 
-int removeValue(int value) {
+int remove_value(int value) {
     if (head == NULL) {
         return -1;
     }
@@ -172,7 +172,7 @@ int removeValue(int value) {
     size_t i = 0;
     do {
         if (curr->value == value) {
-            return removeAt(i);
+            return remove_at(i);
         }
 
         curr = curr->next;
