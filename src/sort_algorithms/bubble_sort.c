@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-void bubbleSort(int* haystack, int length);
+void bubble_sort(int* haystack, int length);
 
 int main(int argc, char* argv[]) {
     return 0;
 }
 
-void bubbleSort(int* haystack, int length) {
+void bubble_sort(int* haystack, int length) {
     if (length == 0) {
         return;
     }
