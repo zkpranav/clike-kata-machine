@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void quickSort(int* arr, int length);
+void quick_sort(int* arr, int length);
 void _sort(int* arr, int low, int high);
 int _partition(int* arr, int low, int high);
 
@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void quickSort(int* arr, int length) {
+void quick_sort(int* arr, int length) {
     if (length == 0 || length == 1) {
         return;
     }
@@ -21,9 +21,9 @@ void _sort(int* arr, int low, int high) {
         return;
     }
 
-    int pivotIdx = _partition(arr, low, high);
-    _sort(arr, low, pivotIdx - 1);
-    _sort(arr, pivotIdx + 1, high);
+    int pivot_idx = _partition(arr, low, high);
+    _sort(arr, low, pivot_idx - 1);
+    _sort(arr, pivot_idx + 1, high);
 }
 
 int _partition(int* arr, int low, int high) {
