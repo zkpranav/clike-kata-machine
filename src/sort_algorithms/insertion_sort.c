@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void insertionSort(int* records, size_t length);
+void insertion_sort(int* records, size_t length);
 
 int main(int argc, char* argv[]) {
     
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void insertionSort(int* records, size_t length) {
+void insertion_sort(int* records, size_t length) {
     if (length <= 0) {
         return;
     }
