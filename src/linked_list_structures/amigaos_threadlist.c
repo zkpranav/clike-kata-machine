@@ -1,7 +1,7 @@
 #include <stdlib.h> // For NULL
 #include <stdbool.h>
 #include <assert.h>
-#include "amigaos_threadlist.h"
+#include "../include/amigaos_threadlist.h"
 
 void threadlistnode_init(struct threadlistnode *tln, struct thread* self) {
     assert(tln != NULL);
@@ -23,9 +23,9 @@ void threadlistnode_cleanup(struct threadlistnode *tln) {
 void threadlist_init(struct threadlist *tl) {
     assert(tl != NULL);
 
-    tl->tl_head->tln_next = &tl->tl_tail;
+    tl->tl_head->tln_next = tl->tl_tail;
     tl->tl_head->tln_prev = NULL;
-    tl->tl_tail->tln_prev = &tl->tl_head;
+    tl->tl_tail->tln_prev = tl->tl_head;
     tl->tl_tail->tln_next = NULL;
     tl->tl_head->tln_self = NULL;
     tl->tl_tail->tln_self = NULL;
@@ -35,9 +35,9 @@ void threadlist_init(struct threadlist *tl) {
 void threadlist_cleanup(struct threadlist *tl) {
     assert(tl != NULL);
 
-    assert(tl->tl_head->tln_next == &tl->tl_tail);
+    assert(tl->tl_head->tln_next == tl->tl_tail);
     assert(tl->tl_head->tln_prev == NULL);
-    assert(tl->tl_tail->tln_prev == &tl->tl_head);
+    assert(tl->tl_tail->tln_prev == tl->tl_head);
     assert(tl->tl_tail->tln_next == NULL);
     assert(tl->tl_head->tln_self == NULL);
     assert(tl->tl_tail->tln_self == NULL);
